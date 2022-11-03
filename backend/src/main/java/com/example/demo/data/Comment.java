@@ -1,18 +1,25 @@
 package com.example.demo.data;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
 // Todo entity validation
 public class Comment {
-    ObjectId user;
+    @Id
+    public String id;
+    public String userName;
 
-    String text;
+    public String text;
 
-    String name;
+    public Date date;
 
-    String avatar;
-
-    Date date;
+    public Comment(String userName, String text, String id ){
+        this.id = id;
+        this.userName = userName;
+        this.text = text;
+        this.date = new Date();
+    }
 }
